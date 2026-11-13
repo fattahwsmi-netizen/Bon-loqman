@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>كافيه بيت البن لقمان</title>
+<meta name="theme-color" content="#3b2314">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="بيت البن لقمان">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<style>
+:root{--bg:#ead7b9;--ink:#3b2314;--card:#fff6e8;--acc:#6f4e37;--acc2:#b07a45;--esp:#3b2314;--cream:#f6e7cf;--ok:#2e7d4f;--bad:#b03a2e;--line:#d6b98f;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a110b;--ink:#f6e7cf;--card:#2a1c12;--acc:#9a6535;--acc2:#c89b6b;--line:#4a3322}}
+:root[data-theme="dark"]{--bg:#1a110b;--ink:#f6e7cf;--card:#2a1c12;--acc:#9a6535;--acc2:#c89b6b;--line:#4a3322}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,sans-serif;user-select:none;-webkit-user-select:none;touch-action:manipulation}
+#app{max-width:520px;margin:0 auto;padding:14px 14px 70px}
+h1{font-size:24px;margin:6px 0}
+.brand{text-align:center;font-weight:700;background:var(--esp);color:var(--cream);border-radius:12px;padding:8px 10px;margin:4px 0 12px;font-size:17px}
+.tel{text-align:center;font-weight:700;margin:8px 0;color:var(--acc2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.ch{background:var(--card);border:2px solid var(--line);border-radius:14px;padding:10px;text-align:center;font-family:inherit;color:var(--ink);font-size:15px}
+.ch b{display:block;font-size:17px;margin:4px 0}
+.ch small{opacity:.8;display:block}
+.em{font-size:34px}
+button{font-family:inherit;color:var(--ink)}
+.btn{background:var(--acc);color:#fff;border:0;border-radius:12px;padding:12px;font-size:17px;font-weight:700;width:100%}
+.btn.alt{background:var(--card);color:var(--ink);border:2px solid var(--line)}
+.hud{display:flex;justify-content:space-between;font-weight:700;font-size:16px;margin-bottom:8px}
+.bar{height:10px;background:var(--line);border-radius:6px;overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;background:var(--ok);width:100%}
+.say{font-size:17px;line-height:1.7;margin:6px 0}
+.ings{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.ing{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:8px 2px;font-size:13px;text-align:center}
+.ing span{display:block;font-size:26px}
+.ing.on{border-color:var(--acc);background:var(--line)}
+#cup{min-height:34px;font-size:22px;text-align:center;margin:6px 0}
+#msg{min-height:26px;text-align:center;font-weight:700}
+.row{display:flex;gap:8px;margin-top:8px}
+#menu{display:none;font-size:14px;line-height:1.8}
+.foot{position:fixed;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 8px);text-align:center;font-size:14px;opacity:.85;pointer-events:none}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div class="foot">☕ بيت البن لقمان | 📞 01151495701</div>
+<script>
+const CH=[
+{n:'محمد فتحي',e:'👨‍🍳',p:'t',d:'وقت زيادة ١٥ ثانية',l:'يلا بينا نشتغل يا شباب!'},
+{n:'محمود يوسف',e:'🧔',p:'w',d:'الزباين بيصبروا أكتر',l:'أنا هظبطلكم القهوة على أصولها.'},
+{n:'ميشو',e:'😎',p:'s',d:'نقاط أكتر ١٫٥ مرة',l:'سيبها عليا يا معلم!'},
+{n:'محمد يوسف',e:'👨‍🦱',p:'w',d:'الزباين بيصبروا أكتر',l:'القهوة عندي بالمزاج.'},
+{n:'حمزة',e:'🧑‍🎤',p:'s',d:'نقاط أكتر ١٫٥ مرة',l:'النهارده هنكسر الدنيا!'},
+{n:'يوسف',e:'🧑‍🍳',p:'t',d:'وقت زيادة ١٥ ثانية',l:'اطلب وأنا عليا التنفيذ.'}];
+const IG={bun:['☕','بن'],water:['💧','ماية'],sugar:['🍬','سكر'],milk:['🥛','لبن'],cardamom:['🌿','هيل'],hazel:['🌰','بندق'],caramel:['🍯','كراميل'],choc:['🍫','شوكولاتة']};
+const RC=[
+['قهوة تركي سادة',['bun','water']],
+['قهوة مظبوط',['bun','water','sugar']],
+['قهوة بالهيل',['bun','water','cardamom']],
+['قهوة بالبندق',['bun','water','hazel']],
+['قهوة بالكراميل',['bun','water','caramel']],
+['كابتشينو',['bun','water','milk']],
+['قهوة فرنساوي',['bun','milk','sugar']],
+['لاتيه كراميل',['bun','milk','caramel']],
+['موكا شوكولاتة',['bun','milk','choc']]];
+const CU=['👨','👩','🧔','👵','👦','👳','🧕','👴'];
+const OK=['تسلم إيدك يا معلم!','قهوة زي الفل!','الله عليك، ريحتها تجنن!','كده تبقى قهوة يا باشا!'];
+const BAD=['إيه ده يا عم؟ مش دي اللي طلبتها!','لأ لأ، فيه حاجة ناقصة أو زيادة!','ركّز معايا شوية يا أسطى!'];
+const LATE=['هستنى كتير كده؟ أنا ماشي!','يا عم اتأخرت، سلامو عليكو!'];
+const ASK=['لو سمحت يا أسطى، عاوز','ياباشا، هات لي','صباح الفل! ابعتلي','على السريع بقى، عاوز'];
+const ar=n=>String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
+let best=0;try{best=+localStorage.getItem('cafe-best')||0}catch(e){}
+const $=id=>document.getElementById(id),app=$('app');
+let me,time,score,served,missed,order,pat,patMax,sel,timer,cust;
+function pick(a){return a[Math.floor(Math.random()*a.length)]}
+function home(){clearInterval(timer);
+app.innerHTML='<h1>كافيه القهوة ☕</h1><div class="brand">☕ بيت البن لقمان ☕<br><small>📞 01151495701</small></div><div class="card"><div class="say">أهلاً بيك يا بطل! اختار شخصيتك واشتغل في الكافيه، والزباين مستنيين قهوتهم بمذاقات مختلفة. 🔥</div></div><div class="grid">'+
+CH.map((c,i)=>'<button class="ch" data-i="'+i+'"><span class="em">'+c.e+'</span><b>'+c.n+'</b><small>'+c.d+'</small></button>').join('')+'</div><div class="say" style="text-align:center;margin-top:10px">رقمك القياسي: '+ar(best)+'</div>';
+app.querySelectorAll('.ch').forEach(b=>b.onclick=()=>start(+b.dataset.i))}
+function start(i){me=CH[i];time=75+(me.p==='t'?15:0);score=0;served=0;missed=0;
+app.innerHTML='<div class="hud"><span id="tm"></span><span>'+me.e+' '+me.n+'</span><span id="sc"></span></div>'+
+'<div class="card"><div class="say" id="cs"></div><div class="bar"><i id="pb"></i></div></div>'+
+'<div id="msg"></div><div id="cup"></div>'+
+'<div class="ings">'+Object.keys(IG).map(k=>'<button class="ing" data-k="'+k+'"><span>'+IG[k][0]+'</span>'+IG[k][1]+'</button>').join('')+'</div>'+
+'<div class="row"><button class="btn" id="srv">قدّم ✅</button><button class="btn alt" id="clr">امسح 🗑️</button><button class="btn alt" id="mn">المنيو 📖</button></div>'+
+'<div class="card" id="menu" style="margin-top:10px">'+RC.map(r=>'<div><b>'+r[0]+':</b> '+r[1].map(k=>IG[k][0]+IG[k][1]).join(' + ')+'</div>').join('')+'</div>';
+app.querySelectorAll('.ing').forEach(b=>b.onclick=()=>{const k=b.dataset.k;if(sel.has(k)){sel.delete(k);b.classList.remove('on')}else{sel.add(k);b.classList.add('on')}cup()});
+$('clr').onclick=clear;$('srv').onclick=serve;
+$('mn').onclick=()=>{const m=$('menu');m.style.display=m.style.display==='block'?'none':'block'};
+nextOrder(me.l);clearInterval(timer);timer=setInterval(tick,100);upd()}
+function clear(){sel=new Set();document.querySelectorAll('.ing').forEach(b=>b.classList.remove('on'));cup()}
+function cup(){$('cup').textContent=sel.size?[...sel].map(k=>IG[k][0]).join(' + '):'الكوباية فاضية'}
+function nextOrder(m){order=pick(RC);cust=pick(CU);patMax=Math.max(12,22-served*0.5)*(me.p==='w'?1.4:1);pat=patMax;
+$('cs').innerHTML='<span class="em">'+cust+'</span> '+pick(ASK)+' <b>'+order[0]+'</b>';
+$('msg').textContent=m||'';clear()}
+function msg(t,c){const m=$('msg');m.textContent=t;m.style.color=c}
+function serve(){const a=[...sel].sort().join(),b=[...order[1]].sort().join();
+if(a===b){const pts=Math.round((10+Math.ceil(pat))*(me.p==='s'?1.5:1));score+=pts;served++;nextOrder();msg(pick(OK)+' +'+ar(pts),'var(--ok)')}
+else{pat-=4;msg(pick(BAD),'var(--bad)');clear()}upd()}
+function tick(){time-=0.1;pat-=0.1;
+if(pat<=0){missed++;nextOrder();msg(pick(LATE),'var(--bad)')}
+if(time<=0){end();return}upd()}
+function upd(){$('tm').textContent='⏱️ '+ar(Math.max(0,Math.ceil(time)));$('sc').textContent='النقاط: '+ar(score);$('pb').style.width=Math.max(0,pat/patMax*100)+'%'}
+function end(){clearInterval(timer);const nb=score>best;if(nb){best=score;try{localStorage.setItem('cafe-best',best)}catch(e){}}
+const st=score>=250?'⭐⭐⭐ أسطورة الكافيه!':score>=140?'⭐⭐ شغل عالي يا معلم':'⭐ كويس، جرّب تاني';
+app.innerHTML='<h1>خلصت الوردية! 🎉</h1><div class="brand">☕ بيت البن لقمان ☕<br><small>📞 01151495701</small></div><div class="card"><div class="say"><span class="em">'+me.e+'</span> '+me.n+'<br>النقاط: <b>'+ar(score)+'</b><br>قهوة اتقدّمت: '+ar(served)+' | زباين مشيوا: '+ar(missed)+'<br>'+st+(nb?'<br>🏆 رقم قياسي جديد!':'')+'</div></div><button class="btn" id="again">العب تاني</button><div style="height:8px"></div><button class="btn alt" id="hm">اختار شخصية تانية</button>';
+$('again').onclick=()=>start(CH.indexOf(me));$('hm').onclick=home}
+home();
+</script>
+<script>if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}</script>
+</body>
+</html>
